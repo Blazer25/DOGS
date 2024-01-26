@@ -1,0 +1,29 @@
+.imagem {
+  display: grid;
+}
+
+.img {
+  display: block;
+  max-width: 100%;
+  grid-area: 1/1;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.esqueleto {
+  grid-area: 1/1;
+  height: 100%;
+  background-image: linear-gradient(90deg, #eee 0px, #fff 50%, #eee 100%);
+  background-color: #eee;
+  background-size: 200%;
+  animation: esqueleto 1.5s infinite linear;
+}
+
+@keyframes esqueleto {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: -200%;
+  }
+}
