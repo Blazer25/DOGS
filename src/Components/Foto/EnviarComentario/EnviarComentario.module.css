@@ -1,0 +1,41 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  margin: 1rem;
+}
+
+.botao {
+  border: none;
+  cursor: pointer;
+  color: #333;
+  background: transparent;
+  font-size: 1rem;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+.botao:focus,
+.botao:hover {
+  outline: none;
+}
+
+.botao:focus svg path,
+.botao:hover svg path {
+  fill: var(--amarelo-claro);
+  stroke: var(--amarelo-principal);
+}
+
+.botao:focus svg g,
+.botao:hover svg g {
+  animation: latir 0.6s infinite;
+}
+
+@keyframes latir {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
