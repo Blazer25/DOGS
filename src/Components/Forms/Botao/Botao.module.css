@@ -1,0 +1,23 @@
+.botao {
+  font-size: 1rem;
+  font-family: var(--tipografia-principal);
+  cursor: pointer;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: var(--amarelo-principal);
+  color: var(--marrom);
+  padding: 0.8rem 1.2rem;
+  box-sizing: border-box;
+  transform: 0.1s;
+  min-width: 8rem;
+}
+
+.botao:hover,
+.botao:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--amarelo-claro), 0 0 0 4px var(--amarelo-principal);
+}
+
+.botao:disabled {
+    opacity: 0.5;
+}

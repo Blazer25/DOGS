@@ -1,0 +1,35 @@
+.geral {
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  font-size: 1rem;
+  line-height: 1;
+  padding-bottom: 0.5rem;
+}
+
+.input {
+  border: 1px solid var(--cinza-claro);
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  background-color: var(--cinza-claro);
+  transform: 0.1s;
+}
+
+.input:focus,
+input:hover {
+  outline: none;
+  border-color: var(--amarelo-principal);
+  background: white;
+  box-sizing: 0 0 3px var(--amarelo-claro);
+}
+
+.erro {
+  color: var(--erro);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
