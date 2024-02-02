@@ -5,9 +5,11 @@ import FeedFotosItem from "./Item/Item";
 import { FOTOS_GET } from "../../../api/fotos";
 import Error from "../../Helpers/Error/Error";
 import Carregando from "../../Helpers/Carregando/Carregando";
+import { useLocation } from "react-router-dom";
 
 const Fotos = ({ setFotoModal, setInfinito, pagina, usuario }) => {
   const { dados, erro, carregando, requisicao } = useFetch();
+  const localizacao = useLocation();
 
   React.useEffect(() => {
     async function carregarFotos() {
@@ -29,7 +31,7 @@ const Fotos = ({ setFotoModal, setInfinito, pagina, usuario }) => {
 
   if (erro) return <Error mensagemErro={erro} />;
   if (carregando) return <Carregando />;
-  if (dados) {
+  if (dados && dados.length) {
     return (
       <ul className={`${style.feed} animacaoEsquerda`}>
         {dados.map((foto) => (
@@ -42,7 +44,11 @@ const Fotos = ({ setFotoModal, setInfinito, pagina, usuario }) => {
       </ul>
     );
   }
-  return null;
+
+  if (localizacao.pathname.includes('conta')) {
+    return <p>Não existem fotos para serem exibidas!</p>;
+  }
+  return null
 };
 
 export default Fotos;
