@@ -1,5 +1,4 @@
 import React from "react";
-import style from "./Feed.module.css";
 import FeedFotos from "../Fotos/Fotos";
 import FeedModal from "../Modal/Modal";
 
@@ -10,28 +9,28 @@ const Feed = ({ usuario }) => {
 
   React.useEffect(() => {
     if (infinito) {
-    }
-    let esperar = false;
-    function scrollInfinito() {
-      const scroll = window.scrollY;
-      const height = document.body.offsetHeight - window.innerHeight;
-
-      if (scroll > height * 0.75 && !esperar) {
-        setPaginas((paginas) => [...paginas, paginas.length + 1]);
-        esperar = true;
-        setTimeout(() => {
-          esperar = false;
-        }, 500);
+      let esperar = false;
+      function scrollInfinito() {
+        const scroll = window.scrollY;
+        const height = document.body.offsetHeight - window.innerHeight;
+  
+        if (scroll > height * 0.75 && !esperar) {
+          setPaginas((paginas) => [...paginas, paginas.length + 1]);
+          esperar = true;
+          setTimeout(() => {
+            esperar = false;
+          }, 500);
+        }
       }
+  
+      window.addEventListener("wheel", scrollInfinito);
+      window.addEventListener("scroll", scrollInfinito);
+  
+      return () => {
+        window.removeEventListener("wheel", scrollInfinito);
+        window.removeEventListener("scroll", scrollInfinito);
+      };
     }
-
-    window.addEventListener("wheel", scrollInfinito);
-    window.addEventListener("scroll", scrollInfinito);
-
-    return () => {
-      window.removeEventListener("wheel", scrollInfinito);
-      window.removeEventListener("scroll", scrollInfinito);
-    };
   }, [infinito]);
 
   return (
