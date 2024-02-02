@@ -55,9 +55,9 @@ const LoginForm = () => {
       </div>
       <div className={style.cadastro}>
         <h2 className={style.subtitulo}>Cadastra-se</h2>
-        <p>Ainda não possui conta? Cadastra-se</p>{" "}
+        <p>Ainda não possui conta?</p>{" "}
         <Link to="/login/criar">
-          <Botao>Cadastro</Botao>
+          <Botao>Cadastre-se</Botao>
         </Link>
       </div>
     </section>
